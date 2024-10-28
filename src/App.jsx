@@ -7,6 +7,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar/NavBar'
 
 //!--- Pages 
+import SignUp from './pages/SignUp/SignUp'
+import SignIn from './pages/SignIn/SignIn'
+import Landing from './pages/Landing/Landing'
+import Dashboard from './pages/Dashboard/Dashboard'
+
 import JobIndex from './pages/JobIndex/JobIndex';
 import JobForm from './pages/JobForm/JobForm';
 import JobShow from './pages/JobIndex/JobIndex';
@@ -20,8 +25,11 @@ const App = () => {
   return(
     <>
       <NavBar/>
-      <h1>Hello world!</h1>
       <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
         <Route path='/jobs' element={<JobIndex/>} />
         <Route path='/jobs/new' element={<JobForm />} />
         <Route path='/jobs/:jobId' element={<JobShow />} />
