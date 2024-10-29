@@ -1,13 +1,15 @@
 import {useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import JobForm from '../../components/JobForm/JobForm'
 
-const JobForm = () => {
+const JobCreate = () => {
 
     return(
         <main>
             <h1>This is the new job form</h1>
+            <JobForm/>
         </main>
     )
 }
 
-export default JobForm
+export default JobCreate
