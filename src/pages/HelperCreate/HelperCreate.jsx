@@ -1,9 +1,11 @@
-
+import HelperForm from "../../components/HelperForm/HelperForm"
 
 const HelperCreate = () => {
 
     return (
-        <h1>Create your helper profile</h1>
+        <main>
+            <HelperForm />
+        </main>
     )
 }
 

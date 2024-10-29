@@ -8,9 +8,21 @@ export const index = () => {
 }
 
 // * Show
+export const show = (helperId) => {
+    return axios.get(`${BASE_URL}/${helperId}`)
+}
 
 // * Create
+export const create = (formData) => {
+    return axios.post(BASE_URL, formData)
+}
 
 // * Update
+export const update = (helperId, formData) => {
+    return axios.put(`${BASE_URL}/${helperId}`, formData)
+}
 
 // * Delete
+export const deleteHelper = (helperId) => {
+    return axios.delete(`${BASE_URL}/${helperId}`)
+}
