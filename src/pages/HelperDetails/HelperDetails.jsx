@@ -13,6 +13,8 @@ const HelperDetails = () => {
     // Location variables
     const { helperId } = useParams()
 
+    
+
     useEffect(() => {
         const fetchHelper = async () => {
             try {
@@ -25,15 +27,18 @@ const HelperDetails = () => {
         fetchHelper()
     }, [helperId])
 
+    console.log(helper)
+
     return (
         <main>
             <section>
                 <p>Profile pic</p>
-                <h1>Username</h1>
-                <p>Location</p>
-                <p>Description goes here, I am free to help people, so please get in touch!</p>
+                {/* <h1>{helper.user.username}</h1> */}
+                <p><strong>Location: </strong></p>
+                {/* <p>{helper.profileDesc}</p> */}
+                {/* <p><strong>Availability:</strong> {helper.availability}</p> */}
                 <p><strong>My skills:</strong> Example, cooking, gardening</p>
-                <p><strong>Availability:</strong>Recently retired, so I can be quite flexible - can't do Wednesdays though.</p>
+                <p><strong>Helper since: </strong></p>
             </section>
         </main>
     )
