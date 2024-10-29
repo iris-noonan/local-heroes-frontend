@@ -1,10 +1,11 @@
-
-
+import HelperForm from "../../components/HelperForm/HelperForm"
 
 const HelperUpdate = () => {
 
     return (
-        <h1>Edit your helper profile</h1>
+        <main>
+            <HelperForm />
+        </main>
     )
 }
 
