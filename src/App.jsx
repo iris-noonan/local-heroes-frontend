@@ -12,9 +12,10 @@ import SignIn from './pages/SignIn/SignIn'
 import Landing from './pages/Landing/Landing'
 import Dashboard from './pages/Dashboard/Dashboard'
 
-import JobIndex from './pages/JobIndex/JobIndex';
-import JobForm from './pages/JobForm/JobForm';
-import JobShow from './pages/JobIndex/JobIndex';
+import JobList from './pages/JobList/JobList';
+import JobCreate from './pages/JobCreate/JobCreate';
+import JobDetails from './pages/JobDetails/JobDetails';
+import JobUpdate from './pages/JobUpdate/JobUpdate'
 
 import HelperList from './pages/HelpersList/HelpersList';
 import HelperDetails from './pages/HelperDetails/HelperDetails';
@@ -30,9 +31,10 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
-        <Route path='/jobs' element={<JobIndex/>} />
-        <Route path='/jobs/new' element={<JobForm />} />
-        <Route path='/jobs/:jobId' element={<JobShow />} />
+        <Route path='/jobs' element={<JobList/>} />
+        <Route path='/jobs/new' element={<JobCreate />} />
+        <Route path='/jobs/:jobId' element={<JobDetails />} />
+        <Route path='/jobs/:jobId/Updates/:jobId' element={<JobUpdate/>} />
         <Route path="/helpers" element={<HelperList />} />
         <Route path="/helpers/:helperId" element={<HelperDetails />} />
         <Route path="/helpers/new" element={<HelperCreate />} />
