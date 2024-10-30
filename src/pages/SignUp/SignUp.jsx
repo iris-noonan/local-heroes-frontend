@@ -8,9 +8,14 @@ const SignUp = ({ setUser }) => {
   // ! State
   const [formData, setFormData] = useState({
     username: '',
+    email: '',
+    location: '',
+    photo: '',
     password: '',
     confirmPassword: ''
   })
+
+  const [selectedFile, setSelectedFile] = useState(null);
 
   // ! Location variables
   const navigate = useNavigate()
@@ -20,8 +25,13 @@ const SignUp = ({ setUser }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
+  const handleFileSelect = (e) => {
+    setSelectedFile(e.target.files[0])
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
+    formData.photo =  selectedFile;
     try {
       const { user } = await signup(formData) // sign in
       setUser(user) // set user to state
@@ -46,6 +56,31 @@ const SignUp = ({ setUser }) => {
               name="username"
               onChange={handleChange}
             />
+          </div>
+          <div>
+            <label htmlFor="email">Email:</label>
+            <input
+              type="text"
+              id="email"
+              value={formData.email}
+              name="email"
+              onChange={handleChange}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="location">Location:</label>
+            <input
+              type="text"
+              id="location"
+              value={formData.location}
+              name="location"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="photo">Profile Photo:</label>
+            <input type="file" name="photo" id="photo" accept="image/*" onChange={handleFileSelect} />
           </div>
           <div>
             <label htmlFor="password">Password:</label>
