@@ -1,14 +1,46 @@
+// colors 
+// Orange #FEAC3F
+// Red #D50017
+
 .navContainer {
     display: flex;
-    background-color: white;
+    flex-direction: row;
+    h1 {
+        position: absolute;
+        top: 50px;
+        left: 20px;
+        color: white;
+        font-family: "Bangers", system-ui;
+        font-size: 6vw;
+        font-weight: 400;
+        font-style: normal;
+        -webkit-text-stroke-width: 3px;
+        -webkit-text-stroke-color: black;
+    }
     nav{
-        background-color: pink;
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
         ul{
-            background-color: blue;
+            display: flex;
+            background-color: #D50017;
+            border-radius: 50px;
+            margin-right: 20px;
             li{
-                background-color: white;
+                list-style: none;
                 a{
-                    text-decoration: dashed;
+                    margin-left: 30px;
+                    color:white;
+                    -webkit-text-stroke-width: 1px;
+                    -webkit-text-stroke-color: black;
+                    font-size: 20pt;
+                    font-family: Helvetica;
+                    font-weight: 1000;
+                    text-decoration: none;
+                    text-shadow: 3px 3px #000000;
+                    
+                    
+
                 }
             }
         }

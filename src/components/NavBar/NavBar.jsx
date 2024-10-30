@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 function NavBar({ user, handleSignOut }) {
     return (
         <div className={styles.navContainer}>
+            <h1>Local Heroes</h1>
             <nav>
                 <ul>
                     <li><Link to="/">Home</Link></li>
