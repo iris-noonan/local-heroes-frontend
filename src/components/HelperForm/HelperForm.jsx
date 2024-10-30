@@ -1,10 +1,10 @@
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { useState } from "react"
 
 // Services
-import { create } from '../../services/helperService'
+import { create, update } from '../../services/helperService'
 
 const HelperForm = () => {
 
@@ -16,6 +16,7 @@ const HelperForm = () => {
 
 // Location variables
     const { helperId } = useParams()
+    const navigate = useNavigate()
 
 // Event handlers
     const handleChange = (e) => {
@@ -25,7 +26,13 @@ const HelperForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            await create(formData)
+            let res
+            if (helperId) {
+                res = await update(helperId, formData)
+            } else {
+                res = await create(formData)
+            }
+            navigate(`/hoots/${res.data._id}`)
         } catch (error) {
             console.log(error)
         }
