@@ -1,0 +1,19 @@
+.welcome {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.userPhoto {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+}
+
+.jobsSection {
+  display: flex;
+}
+
+.jobsSection {
+  display: flex;
+}
