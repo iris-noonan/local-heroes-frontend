@@ -1,7 +1,8 @@
-// add interceptor
 import axios from 'axios'
 import { getToken } from '../utils/auth'
+
 const axiosAuth = axios.create()
+
 axiosAuth.interceptors.request.use((config) => {
     const token = getToken()
     if (token) {
@@ -9,4 +10,5 @@ axiosAuth.interceptors.request.use((config) => {
     }
     return config
 })
+
 export default axiosAuth
