@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import JobForm from '../../components/JobForm/JobForm'
 
 const JobUpdate = () => {
 
     return (
         <main>
-            <h1>Update Jobs</h1>
+            <h1>This is the new job form</h1>
+            <JobForm />
         </main>
     )
 }

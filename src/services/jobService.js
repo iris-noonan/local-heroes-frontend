@@ -1,25 +1,25 @@
 
 //!--- Imports
 
-import axios from "axios"
+import axios from './interceptors'
 
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/jobs`
 
 //!--- Jobs
-//*--- Create ('/new')
-export const create = (formData) => {
-    return axios.post(BASE_URL, formData)
-}
-
 //*--- Index ( '/' )
 export const index = () => {
     return axios.get(BASE_URL)
 }
 
 //*--- Show ('/jobs/:jobId')
-export const show = () => {
-    return axios.get(BASE_URL)
+export const show = (jobId) => {
+    return axios.get(`${BASE_URL}/${jobId}`)
+}
+
+//*--- Create ('/')
+export const create = (formData) => {
+    return axios.post(BASE_URL, formData)
 }
 
 //*--- Update ('/jobs/:jobId')
