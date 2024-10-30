@@ -8,6 +8,7 @@ const SignUp = ({ setUser }) => {
   // ! State
   const [formData, setFormData] = useState({
     username: '',
+    email: '',
     password: '',
     confirmPassword: ''
   })
@@ -44,6 +45,16 @@ const SignUp = ({ setUser }) => {
               id="name"
               value={formData.username}
               name="username"
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="email">Email:</label>
+            <input
+              type="text"
+              id="email"
+              value={formData.email}
+              name="email"
               onChange={handleChange}
             />
           </div>

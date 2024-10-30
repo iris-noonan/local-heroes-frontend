@@ -1,10 +1,10 @@
 import { createContext, useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 //!--- Components
-import NavBar from './components/NavBar/NavBar'
+import SiteHeader from './components/SiteHeader/SiteHeader';
+
 
 //!--- Pages 
 import SignUp from './pages/SignUp/SignUp'
@@ -36,17 +36,17 @@ const App = () => {
   }
 
   return(
-    <>
-      <NavBar user={user} handleSignOut={handleSignOut}/>
+    <main>
+      <SiteHeader user={user} handleSignOut={handleSignOut}/>
       <Routes>
         { user 
           ? (
             <>
               <Route path="/" element={<Dashboard user={user} />} />
-              <Route path='/jobs' element={<JobList/>} />
-              <Route path='/jobs/new' element={<JobCreate />} />
-              <Route path='/jobs/:jobId' element={<JobDetails />} />
-              <Route path='/jobs/:jobId/Updates/:jobId' element={<JobUpdate/>} />
+              <Route path="/jobs" element={<JobList/>} />
+              <Route path="/jobs/new" element={<JobCreate />} />
+              <Route path="/jobs/:jobId" element={<JobDetails user={user} />} />
+              <Route path="/jobs/:jobId/Updates/:jobId" element={<JobUpdate/>} />
               <Route path="/helpers" element={<HelperList />} />
               <Route path="/helpers/:helperId" element={<HelperDetails />} />
               <Route path="/helpers/new" element={<HelperCreate />} />
@@ -63,7 +63,7 @@ const App = () => {
           )
         }
       </Routes>
-    </>
+    </main>
   ) };
 
 export default App;

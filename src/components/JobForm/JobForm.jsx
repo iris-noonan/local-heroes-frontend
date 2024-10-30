@@ -11,10 +11,9 @@ import {show, create, update } from '../../services/jobService'
 const JobForm = () => {
     //Form Data State
     const[formData, setFormData] = useState ({
-        title: '',//MUST DISCUSS THIS
+        title: '',
         description: '',
-        // skill: 'Cleaning',
-        location: ''
+        location: ''        
     })
     //Errors State - for storing erros to use in error handling
     const [errors, setErrors] = useState({})
@@ -67,7 +66,27 @@ const JobForm = () => {
             id="title"
             value={formData.title}
             onChange={handleChange}
-            />
+            /> <br />
+
+            <label htmlFor="description">Description</label>
+            <input
+                required
+                type="text"
+                name="description"
+                id="description"
+                value={formData.description}
+                onChange={handleChange}
+            /> <br />
+
+            <label htmlFor="location">Location</label>
+            <input
+                required
+                type="text"
+                name="location"
+                id="location"
+                value={formData.location}
+                onChange={handleChange}
+            /> <br />
 
             <button type="submit"> Submit </button>
         </form>
