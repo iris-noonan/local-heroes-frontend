@@ -24,7 +24,7 @@ export const create = (formData) => {
 
 //*--- Update ('/jobs/:jobId')
 export const update = (jobId, formData) => {
-    return axios.put(`${BASE_URL}/${jobId}`)
+    return axios.put(`${BASE_URL}/${jobId}`, formData)
 }
 
 //*--- Delete ('/jobs/:jobId')
@@ -45,5 +45,5 @@ export const updateComment = (jobId, commentId, formData) => {
 
 //*--- Delete ('/jobs/:jobId/comments/commentId')
 export const deleteComment = (jobId, commentId) => {
-    return axios.delete('`${BASE_URL}/${jobId}/comments/${commentId}`')
+    return axios.delete(`${BASE_URL}/${jobId}/comments/${commentId}`)
 }

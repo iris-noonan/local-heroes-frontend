@@ -2,6 +2,7 @@
     margin-top: 40px;
     color: white;
 
+    
     .box {
         color: black;
         background-color: white;
@@ -9,13 +10,18 @@
         margin-left: 40px;
         margin-right: 40px;
         padding: 20px;
-        // transform: skew(-5deg);
         border-radius: 10px;
     }
 
     .grey {
         color: rgb(149, 149, 149);
         text-align: center;
+    }
+
+    h1 {
+        text-align: center;
+        text-shadow: 4px 4px black;
+        margin-bottom: 30px;
     }
 
     li {
@@ -30,30 +36,34 @@
     }
 }
 
-.headerSection {
+.userSection {
+    padding-top: 40px;
+    color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    div {
+    h2 {
+        margin-top: 10px;
         margin-bottom: 10px;
-    }
-
-    h1 {
-        margin-bottom: 10px;
-        text-shadow: 4px 4px black;
     }
 
     p {
-        margin-bottom: 30px;
+        margin-bottom: 10px;
     }
 }
 
 .userPhoto {
-    width: 140px;
-    height: 140px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    border: 5px solid white
+    border: 3px solid white
+}
+
+.creatorBlock {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .editDelete {
@@ -62,9 +72,5 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-top: 30px;
-}
-
-.commentSection {
-    margin-top: 30px;
+    margin-top: 10px;
 }
