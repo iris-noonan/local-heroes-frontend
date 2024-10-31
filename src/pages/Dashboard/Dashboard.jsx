@@ -1,9 +1,35 @@
 // src/components/Dashboard/Dashboard.jsx
+import { useState, useEffect } from "react"
+
 import styles from './Dashboard.module.scss';
 
 import { Link } from "react-router-dom";
 
+// Services
+import { index } from "../../services/helperService"
+
 const Dashboard = ({ user }) => {
+
+  const [helperId, setHelperId] = useState(false)
+  const [helper, setHelper] = useState({})
+
+  useEffect(() => {
+      const fetchHelpers = async () => {
+          try {
+              const { data } = await index()
+              const helper = data.find((helper) => helper.user._id === user._id)
+              !!helper ? setHelperId(helper._id) : setHelperId(false)
+              setHelper(helper)
+          } catch (error) {
+              console.log(error)
+          }
+      }
+      fetchHelpers()
+  }, [])
+
+  console.log('helperId: ', helperId)
+  console.log('helper: ', helper)
+
   return (
     <main>
       <div className={styles.welcome}>
@@ -19,30 +45,35 @@ const Dashboard = ({ user }) => {
         />
         <h1>Hi {user.username} 👋</h1>
       </div>
-      <Link to="/jobs/new">Post Job</Link>
-      <br />
-      <Link to="/helpers/new">Become a helper</Link>
-      <br />
-      <Link to="/helper/details/id">My helper profile</Link>
-      <div className='jobsSection'>
-        <h2>
-          Recent jobs near me
-        </h2>
-        <ul className='jobs'>
-          <li className='job'></li>
-          <li className='job'></li>
-          <li className='job'></li>
-        </ul>
-      </div>
-      <div className='helpersSection'>
-        <h2>
-          Local helpers
-        </h2>
-        <ul className='helpers'>
-          <li className='helper'></li>
-          <li className='helper'></li>
-          <li className='helper'></li>
-        </ul>
+      <div className={styles.buttons}>
+        <Link to="/jobs/new">Post Job</Link>
+        { helperId 
+            ? (
+              <Link to={`/helpers/${helperId}`}>My helper profile</Link>
+            ) : (
+              <Link to="/helpers/new">Become a helper</Link>
+            )
+        }
+        <div className='jobsSection'>
+          <h2>
+            Recent jobs near me
+          </h2>
+          <ul className='jobs'>
+            <li className='job'></li>
+            <li className='job'></li>
+            <li className='job'></li>
+          </ul>
+        </div>
+        <div className='helpersSection'>
+          <h2>
+            Local helpers
+          </h2>
+          <ul className='helpers'>
+            <li className='helper'></li>
+            <li className='helper'></li>
+            <li className='helper'></li>
+          </ul>
+        </div>
       </div>
     </main>
   );

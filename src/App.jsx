@@ -1,6 +1,7 @@
 import { createContext, useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
+import styles from './App.module.scss'
 
 //!--- Components
 import SiteHeader from './components/SiteHeader/SiteHeader';
@@ -22,6 +23,8 @@ import HelperDetails from './pages/HelperDetails/HelperDetails';
 import HelperCreate from './pages/HelperCreate/HelperCreate';
 import HelperUpdate from './pages/HelperUpdate/HelperUpdate';
 
+import NotFound from './pages/NotFound/NotFound'
+
 import { getUser, removeToken } from './utils/auth'
 
 const App = () => {
@@ -38,31 +41,34 @@ const App = () => {
   return(
     <main>
       <SiteHeader user={user} handleSignOut={handleSignOut}/>
-      <Routes>
-        { user 
-          ? (
-            <>
-              <Route path="/" element={<Dashboard user={user} />} />
-              <Route path="/jobs" element={<JobList/>} />
-              <Route path="/jobs/new" element={<JobCreate />} />
-              <Route path="/jobs/:jobId" element={<JobDetails user={user} />} />
-              <Route path="/jobs/:jobId/edit" element={<JobUpdate/>} />
-              <Route path="/helpers" element={<HelperList />} />
-              <Route path="/helpers/:helperId" element={<HelperDetails user={user} />} />
-              <Route path="/helpers/new" element={<HelperCreate />} />
-              <Route path="/helpers/:helperId/edit" element={<HelperUpdate />} />
-            </>
-          
-          )
-          : (
-            <>
-              <Route path="/" element={<Landing />} />
-              <Route path="/signup" element={<SignUp setUser={setUser} />} />
-              <Route path="/signin" element={<SignIn setUser={setUser} />} />
-            </>
-          )
-        }
-      </Routes>
+      <div className={styles.contents}>
+        <Routes>
+          { user 
+            ? (
+              <>
+                <Route path="/" element={<Dashboard user={user} />} />
+                <Route path="/jobs" element={<JobList/>} />
+                <Route path="/jobs/new" element={<JobCreate />} />
+                <Route path="/jobs/:jobId" element={<JobDetails user={user} />} />
+                <Route path="/jobs/:jobId/edit" element={<JobUpdate/>} />
+                <Route path="/helpers" element={<HelperList />} />
+                <Route path="/helpers/:helperId" element={<HelperDetails user={user} />} />
+                <Route path="/helpers/new" element={<HelperCreate />} />
+                <Route path="/helpers/:helperId/edit" element={<HelperUpdate />} />
+              </>
+            
+            )
+            : (
+              <>
+                <Route path="/" element={<Landing />} />
+                <Route path="/signup" element={<SignUp setUser={setUser} />} />
+                <Route path="/signin" element={<SignIn setUser={setUser} />} />
+              </>
+            )
+          }
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
     </main>
   ) };
 
