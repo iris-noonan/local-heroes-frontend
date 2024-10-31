@@ -26,3 +26,20 @@ export const update = (helperId, formData) => {
 export const deleteHelper = (helperId) => {
     return axios.delete(`${BASE_URL}/${helperId}`)
 }
+
+//!--- Testimonials
+
+//*--- Create
+export const createTestimonial = (helperId, formData) => {
+    return axios.post(`${BASE_URL}/${helperId}/testimonials`, formData)
+}
+
+//*--- Update
+export const updateTestimonial = (helperId, testimonialId, formData) => {
+    return axios.put(`${BASE_URL}/${helperId}/testimonials/${testimonialId}`, formData)
+}
+
+//*--- Delete
+export const deleteTestimonial = (helperId, testimonialId) => {
+    return axios.delete(`${BASE_URL}/${helperId}/testimonials/${testimonialId}`)
+}

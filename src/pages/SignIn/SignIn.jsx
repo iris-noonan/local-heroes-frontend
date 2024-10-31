@@ -4,6 +4,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import { signin } from '../../services/userService'
 import styles from '../SignIn/SignIn.module.scss';
 
+import Errors from '../../components/Errors/Errors'
+
+
 const SignIn = ({ setUser }) => {
 
   // ! State
@@ -14,6 +17,9 @@ const SignIn = ({ setUser }) => {
 
   // ! Location variables
   const navigate = useNavigate()
+
+  //Errors State - for storing erros to use in error handling
+  const [errors, setErrors] = useState('')
 
   // ! Event Handlers
   const handleChange = (e) => {
@@ -27,7 +33,8 @@ const SignIn = ({ setUser }) => {
       setUser(user) // set user to state
       navigate('/') // navigate to dashboard
     } catch (error) {
-      console.log(error)
+      console.log(error.response.data.errorMessage)
+      setErrors(error.response.data.errorMessage)
     }
   }
 
@@ -56,6 +63,7 @@ const SignIn = ({ setUser }) => {
               onChange={handleChange}
             />
           </div>
+          <Errors message={errors} />
           <div>
             <button>Sign In</button>
             <Link to="/">
