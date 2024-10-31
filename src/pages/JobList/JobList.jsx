@@ -27,6 +27,7 @@ const JobList = () => {
     //!--- Render
     return (
         <main>
+            <div className='main-content'>
             <h1>Jobs List</h1>
             <ul className={styles.jobs}>
                 { jobs.map((job) => (

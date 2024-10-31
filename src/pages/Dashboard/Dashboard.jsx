@@ -19,11 +19,12 @@ const Dashboard = ({ user }) => {
         />
         <h1>Hi {user.username} 👋</h1>
       </div>
-      <div className={styles.buttons}>
-        <Link to="/job/new">Post Job</Link>
-        <Link to="/helper/details/id">My helper profile</Link>
-      </div>
-      {/* <div className='jobsSection'>
+      <Link to="/jobs/new">Post Job</Link>
+      <br />
+      <Link to="/helpers/new">Become a helper</Link>
+      <br />
+      <Link to="/helper/details/id">My helper profile</Link>
+      <div className='jobsSection'>
         <h2>
           Recent jobs near me
         </h2>
