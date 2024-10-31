@@ -2,10 +2,10 @@ import { useState, useEffect, useCallback } from "react"
 import { useParams, useNavigate, Link } from "react-router-dom"
 
 import styles from './HelperDetails.module.scss'
-// import profileImage from '../../assets/images/dummy-profile.jpg'
 
 // Services
 import { deleteHelper, show } from '../../services/helperService'
+import CommentForm from "../../components/CommentForm/CommentForm"
 
 const HelperDetails = ({ user }) => {
 
@@ -84,7 +84,7 @@ const HelperDetails = ({ user }) => {
                         )
                     })}
                 </ul>
-
+                <CommentForm helperId={helperId} fetchHelper={fetchHelper}/>
             </section>
         </main>
     )

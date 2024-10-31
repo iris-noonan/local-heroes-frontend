@@ -10,6 +10,7 @@
         margin-left: 40px;
         margin-right: 40px;
         padding: 20px;
+        border-radius: 10px;
     }
 
     .grey {
@@ -20,6 +21,7 @@
     h1 {
         text-align: center;
         text-shadow: 4px 4px black;
+        margin-bottom: 30px;
     }
 
     li {
@@ -58,12 +60,17 @@
     border: 3px solid white
 }
 
+.creatorBlock {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 .editDelete {
     display: flex;
     // flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 10px;
 }

@@ -5,6 +5,7 @@ import styles from './JobDetails.module.scss'
 
 //!--- Services
 import { show, deleteJob } from '../../services/jobService'
+import CommentForm from "../../components/CommentForm/CommentForm"
 
 
 
@@ -56,8 +57,26 @@ const JobDetails = ({ user }) => {
 
             <h1>{job.title}</h1>
 
-            <div className={styles.userSection}>
-                <p>This job was posted by:</p>
+
+            <section className={styles.box}>
+                <p>{job.description}</p><br />
+                <p><strong>Job location: </strong>{job.location}</p>
+                <p><strong>Date posted: </strong>{new Date(job.createdAt).toDateString()}</p>
+            </section>
+
+            
+
+            {/* Authorized actions */}
+            {job.user._id === user._id 
+            ? <div className={styles.creatorBlock}>
+                <p>You created this job</p>
+                <div className={styles.editDelete}>
+                    <Link to={`/jobs/${jobId}/edit`}>Edit job listing</Link>
+                    <button onClick={handleDeleteJob}>Delete</button>
+                </div>
+            </div>
+            : <div className={styles.userSection}>
+                <p>This job was created by:</p>
                 <div
                     className={styles.userPhoto}
                     style={{
@@ -70,24 +89,10 @@ const JobDetails = ({ user }) => {
                 />
                 <h2>{job.user.username}</h2>
             </div>
-
-            <section className={styles.box}>
-                <p>{job.description}</p><br />
-                <p><strong>Job location: </strong>{job.location}</p>
-                <p><strong>Date posted: </strong>{new Date(job.createdAt).toDateString()}</p>
-            </section>
-
-
-            {/* Authorized actions */}
-            {job.user._id === user._id &&
-                <div className={styles.editDelete}>
-                    <Link to={`/jobs/${jobId}/edit`}>Edit job listing</Link>
-                    <button onClick={handleDeleteJob}>Delete</button>
-                </div>
             }
 
             <section>
-                <h2>Comments</h2>
+                <h1>Comments</h1>
                 {!job.comments.length && <div className={styles.box}><p className={styles.grey}>Able to help or want to know more? Send a comment</p></div>}
                 <ul>
                     {job.comments.map((comment) => {
@@ -98,7 +103,7 @@ const JobDetails = ({ user }) => {
                         )
                     })}
                 </ul>
-
+                <CommentForm jobId={jobId} fetchJob={fetchJob}/>
             </section>
 
         </main>
