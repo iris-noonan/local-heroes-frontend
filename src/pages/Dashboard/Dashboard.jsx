@@ -43,7 +43,7 @@ const Dashboard = ({ user }) => {
           <li className='helper'></li>
           <li className='helper'></li>
         </ul>
-      </div> */}
+      </div>
     </main>
   );
 };

@@ -1,6 +1,8 @@
 import { useEffect, useState, useCallback } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 
+import styles from './JobDetails.module.scss'
+
 //!--- Services
 import { show, deleteJob } from '../../services/jobService'
 
@@ -48,20 +50,57 @@ const JobDetails = ({ user }) => {
     
     //!--- Render 
     if (!job) return <p>Loading</p>
+
     return (
-        <main>
+        <main className={styles.container}>
+
             <h1>{job.title}</h1>
-            <p>{job.description}</p>
-            <p>{job.location}</p>
-            <p>{job.user.username}</p>
+
+            <div className={styles.userSection}>
+                <p>This job was posted by:</p>
+                <div
+                    className={styles.userPhoto}
+                    style={{
+                        backgroundImage: `url(${job.user.photo})`,
+                        backgroundPosition: 'center',
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat'
+                    }}
+                    alt={`Profile photo of ${job.user.username}`}
+                />
+                <h2>{job.user.username}</h2>
+            </div>
+
+            <section className={styles.box}>
+                <p>{job.description}</p><br />
+                <p><strong>Job location: </strong>{job.location}</p>
+                <p><strong>Date posted: </strong>{new Date(job.createdAt).toDateString()}</p>
+            </section>
+
 
             {/* Authorized actions */}
             {job.user._id === user._id &&
-                <>
-                    <Link to={`/jobs/${jobId}/edit`}>Edit</Link>
+                <div className={styles.editDelete}>
+                    <Link to={`/jobs/${jobId}/edit`}>Edit job listing</Link>
                     <button onClick={handleDeleteJob}>Delete</button>
-                </>
+                </div>
             }
+
+            <section>
+                <h2>Comments</h2>
+                {!job.comments.length && <div className={styles.box}><p className={styles.grey}>Able to help or want to know more? Send a comment</p></div>}
+                <ul>
+                    {job.comments.map((comment) => {
+                        return (
+                            <li key={comment._id} className={styles.box}>
+                                <p><strong>{comment.user.username}</strong> {comment.text}</p>
+                            </li>
+                        )
+                    })}
+                </ul>
+
+            </section>
+
         </main>
     )
 }
