@@ -57,7 +57,7 @@ const HelperDetails = ({ user }) => {
                 />
                 {/* <img src={profileImage} /> */}
                 <h1>{helper.user.username}</h1>
-                <p><strong>London</strong> - Helper since: 2024</p>
+                <p><strong>London</strong></p>
             </div>
             <section>
                 <p>{helper.profileDesc}</p>
