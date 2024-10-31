@@ -1,0 +1,21 @@
+.helpers {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+  padding: 0;
+  margin-bottom: 88px;
+}
+
+.helperCard {
+  background: #fff;
+  border: solid 3px #000;
+  border-radius: 18px;
+  height: 100%;
+  width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.helperCardContent {
+  padding: 20px;
+}
