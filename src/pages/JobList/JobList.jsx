@@ -25,12 +25,14 @@ const JobList = () => {
     //!--- Render
     return (
         <main>
+            <div className='main-content'>
             <h1>Jobs List</h1>
             { jobs.map((job) => (
                 <Link key={job._id} to={`/jobs/${job._id}`}>
                     <h2>{job.title}</h2>
                 </Link>
             ))}
+            </div>
         </main>
     )
 }
