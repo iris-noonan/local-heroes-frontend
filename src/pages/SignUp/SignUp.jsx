@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { signup } from '../../services/userService'
 
+import Errors from '../../components/Errors/Errors'
+
 const SignUp = ({ setUser }) => {
 
   // ! State
@@ -19,6 +21,10 @@ const SignUp = ({ setUser }) => {
 
   // ! Location variables
   const navigate = useNavigate()
+
+
+  //Errors State - for storing erros to use in error handling
+  const [errors, setErrors] = useState('')
 
   // ! Event Handlers
   const handleChange = (e) => {
@@ -38,6 +44,7 @@ const SignUp = ({ setUser }) => {
       navigate('/') // navigate to dashboard
     } catch (error) {
       console.log(error)
+      setErrors(error.response.data.errorMessage)
     }
   }
 
@@ -47,7 +54,6 @@ const SignUp = ({ setUser }) => {
         <form onSubmit={handleSubmit}>
           <h1>Sign up</h1>
           <div>
-
           <label htmlFor="username">Username:</label>
             <input
               type="text"
@@ -102,6 +108,7 @@ const SignUp = ({ setUser }) => {
               onChange={handleChange}
             />
           </div>
+          <Errors message={errors} />
           <div>
             <button>Sign Up</button>
             <Link to="/">
