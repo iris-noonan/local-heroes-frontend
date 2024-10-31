@@ -1,5 +1,5 @@
 // src/components/Dashboard/Dashboard.jsx
-import styles from './Dashboard.module.css';
+import styles from './Dashboard.module.scss';
 
 import { Link } from "react-router-dom";
 
@@ -17,7 +17,7 @@ const Dashboard = ({ user }) => {
           }}
           alt={`Profile photo of ${user.username}`}
         />
-        <h1>Welcome back {user.username}</h1>
+        <h1>Hi {user.username} 👋</h1>
       </div>
       <Link to="/jobs/new">Post Job</Link>
       <br />
@@ -43,7 +43,7 @@ const Dashboard = ({ user }) => {
           <li className='helper'></li>
           <li className='helper'></li>
         </ul>
-      </div>
+      </div> */}
     </main>
   );
 };

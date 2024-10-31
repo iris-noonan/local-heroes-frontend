@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 
+import styles from './HelpersList.module.scss';
+
 // Services
 import { index } from "../../services/helperService"
 
@@ -26,13 +28,27 @@ const HelperList = () => {
     return (
         <main>
             <h1>Here is a list of nearby helpers</h1>
-            <ul>
-                {helpers.map((helper) => {
-                    return <li key={helper._id}>
-                        <h3><Link to={`/helpers/${helper._id}`}>{helper.user.username}</Link></h3>
-                        <p>{helper.profileDesc}</p>
-                    </li>
-                })}
+            <ul className={styles.helpers}>
+                {helpers.map((helper) => (
+                    <Link key={helper._id} to={`/helpers/${helper._id}`}>
+                        <li className={styles.helperCard}>
+                            <div className={styles.helperCardContent}>
+                                <div className={styles.helperCardRow}>
+                                    <span>Title: </span>
+                                    <span>{helper.user.username}</span>
+                                </div>
+                                <div className={styles.helperCardRow}>
+                                    <span>Location: </span>
+                                    <span>{helper.profileDesc}</span>
+                                </div>
+                                <div className={styles.helperCardRow}>
+                                    <span>Availability: </span>
+                                    <span>{helper.availability}</span>
+                                </div>
+                            </div>
+                        </li>
+                    </Link>
+                ))}
             </ul>
         </main>
     )
