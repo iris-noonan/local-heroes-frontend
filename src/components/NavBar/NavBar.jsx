@@ -1,25 +1,43 @@
 import styles from '../NavBar/NavBar.module.scss';
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import React, { useState } from 'react'
 
 
-function NavBar({ user, handleSignOut }) {
+const NavBar = ({ user, handleSignOut }) => {
+
+    const [menuOpen, setMenuOpen] = useState(false)
+
+
+
     return (
+        
         <div className={styles.navContainer}>
+            <img src="/images/header-background.svg" alt="" />
             <h1>Local Heroes</h1>
             <nav>
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    { user ? <> 
-                        <li><Link to="/jobs">See Jobs</Link></li>
-                        <li><Link to="/jobs/new">Create a Job</Link></li>
-                        <li><Link to="/helpers">See helpers</Link></li>
-                        <li><Link to="/helpers/new">Become a helper</Link></li>
-                        <li><Link to="" onClick={handleSignOut}>Sign Out</Link></li>
+                <div 
+                className={styles.menu} 
+                onClick={() => {
+                    setMenuOpen(!menuOpen)
+                    console.log("menu clicked!");
+                    console.log(menuOpen)
+                }}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul className={menuOpen ? `${styles.open}` : ""}>
+                    
+                    { user ? <>
+                        <li><NavLink to="/">Dashboard</NavLink></li>
+                        <li><NavLink to="/jobs">See Jobs</NavLink></li>
+                        <li><NavLink to="/helpers">See helpers</NavLink></li>
+                        <li><NavLink to="" onClick={handleSignOut}>Sign Out</NavLink></li>
                     </>
                         : 
                     <>
-                        <li><Link to="/signup">Sign Up</Link></li>
-                        <li><Link to="/signin">Sign In</Link></li>
+                        <li><NavLink to="/signin">Sign In</NavLink></li>
+                        <li><NavLink to="/signup">Sign Up</NavLink></li>
                     </>}
                 </ul>
             </nav>

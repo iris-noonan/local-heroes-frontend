@@ -19,7 +19,10 @@ const Dashboard = ({ user }) => {
         />
         <h1>Welcome back {user.username}</h1>
       </div>
-      <Link to="/job/new">Post Job</Link>
+      <Link to="/jobs/new">Post Job</Link>
+      <br />
+      <Link to="/helpers/new">Become a helper</Link>
+      <br />
       <Link to="/helper/details/id">My helper profile</Link>
       <div className='jobsSection'>
         <h2>

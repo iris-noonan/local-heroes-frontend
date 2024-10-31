@@ -47,6 +47,7 @@ const JobDetails = ({ user }) => {
     //!--- Render loading message??????? 
     
     //!--- Render 
+    if (!job) return <p>Loading</p>
     return (
         <main>
             <h1>{job.title}</h1>
