@@ -61,7 +61,7 @@ const JobForm = () => {
             } else {
                 res = await create(formData)
             }
-            navigate(`/jobs/${res.data._id}`)  //Check it's best to show the show job page on submit. I think that's better than going to the jobs index.
+            navigate(`/jobs/${res.data._id}`)
         } catch(error) {
             console.log(error.response.data)
             setErrors(error.response.data)
@@ -69,7 +69,7 @@ const JobForm = () => {
     }
 
     return (
-        <div className='main-content'>
+        <div className='somethingnew'>
             <form onSubmit={ handleSubmit }>
                 <label htmlFor="title">Title:</label>
                 <input
@@ -115,7 +115,6 @@ const JobForm = () => {
                     type="file"
                     name="image"
                     id="image"
-                    value={formData.image}
                     accept="image/*"
                     onChange={handleFileSelect}
                 /> <br />
