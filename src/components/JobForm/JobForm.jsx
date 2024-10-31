@@ -1,7 +1,10 @@
 //!--- Imports
 import {useEffect, useState } from 'react'
 import {useNavigate, useParams } from 'react-router-dom'
+
 import styles from '../JobForm/JobForm.module.scss';
+import Errors from '../../components/Errors/Errors'
+
 
 //!--- Services
 import {show, create, update } from '../../services/jobService'
@@ -19,11 +22,9 @@ const JobForm = () => {
         appreciation: false,        
     })
 
-    //State for file upload
-    const [selectedFile, setSelectedFile] = useState(null);
-
     //Errors State - for storing erros to use in error handling
     const [errors, setErrors] = useState({})
+
 
     const navigate = useNavigate()
     const { jobId } = useParams()
@@ -47,13 +48,8 @@ const JobForm = () => {
         setFormData({...formData, [event.target.name]: event.target.value});
     }
 
-    const handleFileSelect = (event) => {
-        setSelectedFile(event.target.files[0])
-    }
-
     const handleSubmit = async (event) => {
         event.preventDefault()
-        formData.image = selectedFile;
         try {
             let res
             if (jobId) {//Determining if it's a new job or updating an existing
@@ -79,7 +75,8 @@ const JobForm = () => {
                 id="title"
                 value={formData.title}
                 onChange={handleChange}
-                /> <br />
+                /> 
+                {errors.title && <p className='error'>{errors.title.message}</p>}
 
                 <label htmlFor="description">Description:</label>
                 <input
@@ -89,7 +86,8 @@ const JobForm = () => {
                     id="description"
                     value={formData.description}
                     onChange={handleChange}
-                /> <br />
+                /> 
+                {errors.description && <p className='error'>{errors.description.message}</p>}
 
                 <label htmlFor="location">Location:</label>
                 <input
@@ -99,7 +97,8 @@ const JobForm = () => {
                     id="location"
                     value={formData.location}
                     onChange={handleChange}
-                /> <br />
+                /> 
+                {errors.location && <p className='error'>{errors.location.message}</p>}
 
                 <label htmlFor="skill">Skill:</label>
                 <input
@@ -108,16 +107,17 @@ const JobForm = () => {
                     id="skill"
                     value={formData.skill}
                     onChange={handleChange}
-                /> <br />
+                /> 
+                {errors.skill && <p className='error'>{errors.skill.message}</p>}
 
-                <label htmlFor="image">Image of your job:</label>
+                {/* <label htmlFor="image">Image of your job:</label>
                 <input
                     type="file"
                     name="image"
                     id="image"
                     accept="image/*"
                     onChange={handleFileSelect}
-                /> <br />
+                /> <br /> */}
 
                 <button type="submit"> Submit </button>
             </form>
