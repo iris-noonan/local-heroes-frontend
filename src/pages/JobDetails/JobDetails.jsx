@@ -4,7 +4,7 @@ import { useNavigate, useParams, Link } from 'react-router-dom'
 import styles from './JobDetails.module.scss'
 
 //!--- Services
-import { show, deleteJob } from '../../services/jobService'
+import { show, deleteJob, deleteComment } from '../../services/jobService'
 import CommentForm from "../../components/CommentForm/CommentForm"
 
 
@@ -25,7 +25,7 @@ const JobDetails = ({ user }) => {
             setJob(data)
         } catch (error) {
             console.log(error.response.data)
-            setErrors(error.response.data)
+            // setErrors(error.response.data)
         }
     }, [jobId])
     
@@ -41,6 +41,15 @@ const JobDetails = ({ user }) => {
             navigate('/jobs')
         } catch (error) {
             console.log(error)            
+        }
+    }
+
+    const handleDeleteComment = async (e) => {
+        try {
+            await deleteComment(jobId, e.target.id)
+            fetchJob()
+        } catch (error) {
+            console.log(error)
         }
     }
 
@@ -99,6 +108,7 @@ const JobDetails = ({ user }) => {
                         return (
                             <li key={comment._id} className={styles.box}>
                                 <p><strong>{comment.user.username}</strong> {comment.text}</p>
+                                {comment.user._id === user._id && <button id={comment._id} onClick={handleDeleteComment}>Delete</button>}
                             </li>
                         )
                     })}
