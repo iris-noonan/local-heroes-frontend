@@ -6,10 +6,8 @@ const JobCreate = () => {
 
     return(
         <main>
-            <div className='main-content'>
-                <h1>This is the new job form</h1>
-                <JobForm/>
-            </div>
+            <h1>This is the new job form</h1>
+            <JobForm/>
         </main>
     )
 }

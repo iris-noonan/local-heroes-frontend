@@ -1,0 +1,29 @@
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5%;
+        width: 75%;
+        font-size: 18pt;
+        font-family: Lexend, Helvetica, sans-serif;
+        background-color: white;
+        border: solid black 5px;
+        border-radius: 2rem;
+        box-shadow: 5px 5px black;
+
+        label {
+            width: 70%;
+        }
+
+        input {
+            width: 70%;
+            font-size: 18pt;
+            border: solid black 4px;
+        }
+
+        button {
+            background-color: #D50017;
+            color: white;
+            margin: 10px;
+        }
+    }
