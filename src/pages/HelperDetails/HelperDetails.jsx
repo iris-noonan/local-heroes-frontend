@@ -4,7 +4,7 @@ import { useParams, useNavigate, Link } from "react-router-dom"
 import styles from './HelperDetails.module.scss'
 
 // Services
-import { deleteHelper, show } from '../../services/helperService'
+import { deleteHelper, deleteTestimonial, show } from '../../services/helperService'
 import CommentForm from "../../components/CommentForm/CommentForm"
 
 const HelperDetails = ({ user }) => {
@@ -34,6 +34,15 @@ const HelperDetails = ({ user }) => {
         try {
             await deleteHelper(helperId)
             navigate('/helpers')
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const handleDeleteTestimonial = async (e) => {
+        try {
+            await deleteTestimonial(helperId, e.target.id)
+            fetchHelper()
         } catch (error) {
             console.log(error)
         }
@@ -80,6 +89,7 @@ const HelperDetails = ({ user }) => {
                         return (
                             <li key={testimonial._id} className={styles.box}>
                                 <p><strong>{testimonial.user.username}</strong> {testimonial.text}</p>
+                                {testimonial.user._id === user._id && <button id={testimonial._id} onClick={handleDeleteTestimonial}>Delete</button>}
                             </li>
                         )
                     })}

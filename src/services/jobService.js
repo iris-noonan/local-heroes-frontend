@@ -44,12 +44,12 @@ export const createComment = (jobId, formData) => {
     return axios.post(`${BASE_URL}/${jobId}/comments`, formData)
 }
 
-//*--- Update ('/jobs/:jobId/comments/commentId')
+//*--- Update ('/jobs/:jobId/comments/:commentId')
 export const updateComment = (jobId, commentId, formData) => {
     return axios.put(`${BASE_URL}/${jobId}/comments/${commentId}`, formData)
 }
 
-//*--- Delete ('/jobs/:jobId/comments/commentId')
+//*--- Delete ('/jobs/:jobId/comments/:commentId')
 export const deleteComment = (jobId, commentId) => {
     return axios.delete(`${BASE_URL}/${jobId}/comments/${commentId}`)
 }
