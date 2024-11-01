@@ -1,45 +1,41 @@
-// colors 
-// Orange #FEAC3F
-// Red #D50017
+// // colors 
+// // Orange #FEAC3F
+// // Red #D50017
 
-    form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 5%;
-        width: 75%;
-        font-size: 18pt;
-        font-family: Lexend, Helvetica, sans-serif;
-        background-color: white;
-        border: solid black 5px;
-        border-radius: 2rem;
-        box-shadow: 5px 5px black;
-        label{
-            width: 70%;
-        }
-        input{
-            width:70%;
-            font-size: 18pt;
-            border: solid black 4px;
-            border-radius: 0.5rem;
-        }
-        button{
-            padding: 0.6em 1.2em;
-            font-size: 1em;
-            font-weight: 500;
-            cursor: pointer;
-            background-color: #D50017;
-            border: solid black 5px;
-            border-radius: 1rem;
-            color: white;
-            margin: 10px;
-        }
-        button:hover{
-            background-color: white;
-            color: #D50017;
-        }
-                // button:focus,
-                // button:focus-visible {
-                //     outline: 4px auto -webkit-focus-ring-color;
-                // }
-    }
+//     form {
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         padding: 5%;
+//         width: 75%;
+//         font-size: 18pt;
+//         font-family: Lexend, Helvetica, sans-serif;
+//         background-color: white;
+//         border: solid black 5px;
+//         border-radius: 2rem;
+//         box-shadow: 5px 5px black;
+//         label{
+//             width: 70%;
+//         }
+//         input{
+//             width:70%;
+//             font-size: 18pt;
+//             border: solid black 4px;
+//             border-radius: 0.5rem;
+//         }
+//         button{
+//             padding: 0.6em 1.2em;
+//             font-size: 1em;
+//             font-weight: 500;
+//             cursor: pointer;
+//             background-color: #D50017;
+//             border: solid black 5px;
+//             border-radius: 1rem;
+//             color: white;
+//             margin: 10px;
+//         }
+//         button:hover{
+//             background-color: white;
+//             color: #D50017;
+//         }
+//     }

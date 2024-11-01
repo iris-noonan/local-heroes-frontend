@@ -1,5 +1,55 @@
 .contents {
-  max-width: 900px;
-  margin: auto;
+  max-width: 80%;
   padding: 36px;
+  margin-left: 10%;
+  margin-right: 10%;
+  
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5%;
+  font-size: 18pt;
+  font-family: Lexend, Helvetica, sans-serif;
+  background-color: white;
+  border: solid black 5px;
+  border-radius: 2rem;
+  box-shadow: 5px 5px black;
+  color: black;
+  label{
+      display: flex;
+  }
+  input{
+      width:90%;
+      font-size: 18pt;
+      border: solid black 4px;
+      border-radius: 0.5rem;
+      background-color: white;
+      padding-left: 10px;
+      color: black;
+      display: flex;
+  }
+  button{
+      padding: 0.6em 1.2em;
+      font-size: 1em;
+      font-weight: 500;
+      cursor: pointer;
+      background-color: #D50017;
+      border: solid black 5px;
+      border-radius: 1rem;
+      color: white;
+      margin: 10px;
+  }
+  button:hover{
+      background-color: white;
+      color: #D50017;
+  }
+  
+}
+
+.buttonsGroup {
+  display: flex;
+  flex-direction: row;
 }

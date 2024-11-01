@@ -2,6 +2,12 @@ main{
     display: flex;
     flex-direction: column;
     
+    h1 {
+        margin-bottom: 20px;
+        text-align: center;
+        color: black;
+    }
+
     section{
         display: flex;
         flex-direction: column;

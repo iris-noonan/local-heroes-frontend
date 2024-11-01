@@ -1,4 +1,3 @@
-// src/components/Landing/Landing.jsx
 import styles from './Landing.module.scss';
 
 const Landing = () => {

@@ -5,21 +5,15 @@ import {useNavigate, useParams } from 'react-router-dom'
 import styles from '../JobForm/JobForm.module.scss';
 import Errors from '../../components/Errors/Errors'
 
-
 //!--- Services
 import {show, create, update } from '../../services/jobService'
-
 
 const JobForm = () => {
     //Form Data State
     const[formData, setFormData] = useState ({
         title: '',
         description: '',
-        location: '',
-        skill: '',
-        image: '',
-        completed: false,
-        appreciation: false,        
+        location: '',      
     })
 
     //Errors State - for storing erros to use in error handling
@@ -99,25 +93,6 @@ const JobForm = () => {
                     onChange={handleChange}
                 /> 
                 {errors.location && <p className='error'>{errors.location.message}</p>}
-
-                <label htmlFor="skill">Skill:</label>
-                <input
-                    type="text"
-                    name="skill"
-                    id="skill"
-                    value={formData.skill}
-                    onChange={handleChange}
-                /> 
-                {errors.skill && <p className='error'>{errors.skill.message}</p>}
-
-                {/* <label htmlFor="image">Image of your job:</label>
-                <input
-                    type="file"
-                    name="image"
-                    id="image"
-                    accept="image/*"
-                    onChange={handleFileSelect}
-                /> <br /> */}
 
                 <button type="submit"> Submit </button>
             </form>
