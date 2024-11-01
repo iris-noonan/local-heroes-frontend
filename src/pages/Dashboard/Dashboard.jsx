@@ -27,9 +27,6 @@ const Dashboard = ({ user }) => {
       fetchHelpers()
   }, [])
 
-  console.log('helperId: ', helperId)
-  console.log('helper: ', helper)
-
   return (
     <main>
       <div className={styles.welcome}>

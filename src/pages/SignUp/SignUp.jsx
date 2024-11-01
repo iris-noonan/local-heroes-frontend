@@ -1,4 +1,3 @@
-// src/components/SignUp/SignUp.jsx
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { signup } from '../../services/userService'
@@ -52,8 +51,8 @@ const SignUp = ({ setUser }) => {
   return (
     <main>
       <section>
+        <h1>Sign up</h1>
         <form onSubmit={handleSubmit}>
-          <h1>Sign up</h1>
           <div>
           <label htmlFor="username">Username:</label>
             <input
@@ -110,7 +109,7 @@ const SignUp = ({ setUser }) => {
             />
           </div>
           <Errors message={errors} />
-          <div>
+          <div className='buttonsGroup'>
             <button>Sign Up</button>
             <Link to="/">
               <button>Cancel</button>

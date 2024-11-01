@@ -1,13 +1,11 @@
 import styles from '../NavBar/NavBar.module.scss';
-import { Link, NavLink } from 'react-router-dom'
-import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
+import { useState } from 'react'
 
 
 const NavBar = ({ user, handleSignOut }) => {
 
     const [menuOpen, setMenuOpen] = useState(false)
-
-
 
     return (
         
@@ -44,17 +42,6 @@ const NavBar = ({ user, handleSignOut }) => {
                 </ul>
             </nav>
         </div>
-
-        // <Navbar expand="lg" className="bg-body-tertiary">
-        //     <Container>
-        //         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        //         <Navbar.Collapse id="basic-navbar-nav">
-        //             <Nav className="me-auto">
-        //                 
-        //             </Nav>
-        //         </Navbar.Collapse>
-        //     </Container>
-        // </Navbar>
     );
 }
 

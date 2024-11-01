@@ -23,8 +23,6 @@ const HelperList = () => {
         fetchHelpers()
     }, [])
 
-    console.log(helpers)
-
     return (
         <main>
             <h1>Here is a list of nearby helpers</h1>

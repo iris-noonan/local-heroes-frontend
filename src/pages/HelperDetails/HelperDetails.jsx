@@ -10,7 +10,6 @@ import CommentForm from "../../components/CommentForm/CommentForm"
 const HelperDetails = ({ user }) => {
 
     const [helper, setHelper] = useState(null)
-    // const [errors, setErrors] = useState(null)
 
     // Location variables
     const { helperId } = useParams()
@@ -48,7 +47,6 @@ const HelperDetails = ({ user }) => {
         }
     }
 
-    console.log(helper)
     if (!helper) return <p>Loading...</p>
 
     return (

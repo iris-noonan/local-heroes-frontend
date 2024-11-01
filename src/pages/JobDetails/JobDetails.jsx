@@ -13,8 +13,6 @@ const JobDetails = ({ user }) => {
 
     //!--- States
     const[job, setJob] = useState(null)
-    //Error State.....
-
 
     const { jobId } = useParams()
     const navigate = useNavigate()
@@ -25,14 +23,12 @@ const JobDetails = ({ user }) => {
             setJob(data)
         } catch (error) {
             console.log(error.response.data)
-            // setErrors(error.response.data)
         }
     }, [jobId])
     
     useEffect(() => {
         fetchJob()
     },[jobId, fetchJob])
-    console.log(job)
 
     //!--- Handlers
     const handleDeleteJob = async () => {
@@ -53,13 +49,11 @@ const JobDetails = ({ user }) => {
         }
     }
 
-    //!--- Render Error messages
+    //!--- Render loading message
 
-
-    //!--- Render loading message??????? 
+    if (!job) return <p>Loading</p>
     
     //!--- Render 
-    if (!job) return <p>Loading</p>
 
     return (
         <main className={styles.container}>
@@ -72,9 +66,7 @@ const JobDetails = ({ user }) => {
                 <p><strong>Job location: </strong>{job.location}</p>
                 <p><strong>Date posted: </strong>{new Date(job.createdAt).toDateString()}</p>
             </section>
-
             
-
             {/* Authorized actions */}
             {job.user._id === user._id 
             ? <div className={styles.creatorBlock}>

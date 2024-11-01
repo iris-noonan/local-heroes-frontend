@@ -31,9 +31,3 @@ export const signin = async (formData) => {
 
   return data
 }
-
-// export const profile = async (formData) => {
-//   // Sign up a user
-//   const { data } = await axios.post(`${BASE_URL}/profile`, formData)
-//   return data
-// }
