@@ -2,3 +2,30 @@
   display: flex;
   justify-content: center;
 }
+
+.landingCopy {
+  background: #FEAC3F;
+  padding: 24px 38px;
+  margin-bottom: 24px;
+}
+
+.buttonAuth {
+  background: #FEAC3F;
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  padding: 0.3rem 1.2rem 0.4rem;
+  margin: 0 0.5rem;
+  border-radius: 0.5rem;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  font-size: 18pt;
+  font-family: Helvetica;
+  font-weight: 1000;
+  text-shadow: 3px 3px #000000;
+
+  &:hover {
+    background: #D50017;
+    color: #fff;
+  }
+}

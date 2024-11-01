@@ -54,26 +54,6 @@ const Dashboard = ({ user }) => {
               <Link to="/helpers/new">Become a helper</Link>
             )
         }
-        <div className='jobsSection'>
-          <h2>
-            Recent jobs near me
-          </h2>
-          <ul className='jobs'>
-            <li className='job'></li>
-            <li className='job'></li>
-            <li className='job'></li>
-          </ul>
-        </div>
-        <div className='helpersSection'>
-          <h2>
-            Local helpers
-          </h2>
-          <ul className='helpers'>
-            <li className='helper'></li>
-            <li className='helper'></li>
-            <li className='helper'></li>
-          </ul>
-        </div>
       </div>
     </main>
   );

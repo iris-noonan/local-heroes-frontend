@@ -13,7 +13,9 @@ const NavBar = ({ user, handleSignOut }) => {
         
         <div className={styles.navContainer}>
             <img src="/images/header-background.svg" alt="" />
-            <h1>Local Heroes</h1>
+            <NavLink to="/">
+                <h1>Local Heroes</h1>
+            </NavLink>
             <nav>
                 <div 
                 className={styles.menu} 

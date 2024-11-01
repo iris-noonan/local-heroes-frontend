@@ -1,10 +1,22 @@
 .helpers {
   list-style-type: none;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 18px;
   padding: 0;
   margin-bottom: 88px;
+}
+
+@media (min-width: 576px) {
+  .helpers {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .helpers {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .helperCard {
