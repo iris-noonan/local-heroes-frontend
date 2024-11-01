@@ -18,14 +18,8 @@ export const show = (jobId) => {
 }
 
 //*--- Create ('/')
-export const create = async (formData) => {
-    const config = {
-        headers: {
-            'content-type': 'multipart/form-data'
-        }
-    }
-    const { data } = await axios.post(`${BASE_URL}/`, formData, config)
-    return data
+export const create = (formData) => {
+    return axios.post(BASE_URL, formData)
 }
 
 //*--- Update ('/jobs/:jobId')
